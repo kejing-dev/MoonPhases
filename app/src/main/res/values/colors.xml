@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App icon background: lamp orange, unique to this app in the factory (the sun lamp of the classroom). -->
+    <color name="ic_launcher_background">#E3803A</color>
+</resources>

@@ -1,0 +1,168 @@
+<resources>
+    <string name="app_name">Moon Phases</string>
+    <string name="loading">Getting ready…</string>
+
+    <!-- S01 -->
+    <string name="s01_title">In this lesson, you are the Earth</string>
+    <string name="s01_safety">You will turn around on the spot, no walking. Keep 1 metre around you clear, or sit on a swivel chair. If you step outside the safe area, the headset shows the room again.</string>
+    <string name="start_lesson">Start the lesson</string>
+    <string name="free_turn">Free turning</string>
+
+    <!-- S02 -->
+    <string-array name="intro_titles">
+        <item>This is the Sun</item>
+        <item>Your head is the Earth</item>
+        <item>This is the Moon, it goes round with you</item>
+    </string-array>
+    <string-array name="intro_bodies">
+        <item>A lamp 4 metres away, at eye height. It is the only light in this room: everything you will see is lit by it.</item>
+        <item>The ring on the floor has eight marks. Each phase you find lights one of them.</item>
+        <item>At arm\'s length, a little above the Sun. Turn left on the spot and watch how much of its lit half you can see.</item>
+    </string-array>
+    <string name="next">Next</string>
+    <string name="begin">Begin</string>
+
+    <!-- S03 / S04 -->
+    <string name="lesson_n_of">Lesson %1$d / 8</string>
+    <string-array name="phase_names">
+        <item>New Moon</item>
+        <item>Waxing Crescent</item>
+        <item>First Quarter</item>
+        <item>Waxing Gibbous</item>
+        <item>Full Moon</item>
+        <item>Waning Gibbous</item>
+        <item>Third Quarter</item>
+        <item>Waning Crescent</item>
+    </string-array>
+    <string-array name="phase_dos">
+        <item>Face the Sun</item>
+        <item>Turn a little to the left</item>
+        <item>Keep turning until the Sun is on your right</item>
+        <item>A bit more to the left</item>
+        <item>Turn your back to the Sun</item>
+        <item>Keep turning left</item>
+        <item>Turn until the Sun is on your left</item>
+        <item>Almost back to the Sun</item>
+    </string-array>
+    <string-array name="phase_whys">
+        <item>Its dark side faces you and the Sun is in your eyes, so you can barely see it.</item>
+        <item>A thin bright edge appears on the right. It\'s the sliver you see in the west after sunset.</item>
+        <item>The right half is lit. It looks like a half, but the Moon is only a quarter of the way round.</item>
+        <item>More than half is lit, and it\'s still growing.</item>
+        <item>The whole lit face points at you. The Moon passes a little below your head, missing Earth\'s shadow.</item>
+        <item>The lit part starts shrinking; this time the right side goes dark first.</item>
+        <item>The left half is lit: the mirror of First Quarter.</item>
+        <item>Only a thin sliver on the left, seen in the east before dawn. Turn back to the Sun and it is New Moon again.</item>
+    </string-array>
+    <string name="moon_days">The Moon has travelled %1$d days</string>
+    <string name="continue_">Continue</string>
+    <string name="hint_left">↶ Turn left</string>
+    <string name="hint_more">A bit more</string>
+    <string name="hint_close">Almost there</string>
+    <string name="hint_back">↷ Too far, come back a little</string>
+    <string name="give_hint">Give me a hint</string>
+    <string name="cant_turn">I can\'t turn that far</string>
+    <string name="sun_moved">The Sun moved to your right. Turn back a little.</string>
+    <string name="moon_held">Moon held</string>
+
+    <!-- S05 -->
+    <string name="s05_title">One full turn!</string>
+    <string name="lap_summary">One full turn = one cycle of phases, about 29.5 days. Half the Moon is always lit; what changes is how much of that half you see.</string>
+    <string name="learn_eclipse">Learn eclipses</string>
+    <string name="skip_quiz">Straight to the quiz</string>
+
+    <!-- S06 / S07 / S08 -->
+    <string name="eclipse_why_title">Why isn\'t there an eclipse every month?</string>
+    <string name="eclipse_intro">The Moon\'s path is tilted (shown as 10° here; really about 5°), so at New Moon it passes above the Sun. Flatten the orbit and see.</string>
+    <string name="flatten">Flatten the orbit</string>
+    <string name="eclipse_n_of">Eclipse %1$d / 2</string>
+    <string-array name="eclipse_names">
+        <item>Solar Eclipse</item>
+        <item>Lunar Eclipse</item>
+    </string-array>
+    <string-array name="eclipse_dos">
+        <item>With the orbit flat, face the Sun</item>
+        <item>With the orbit flat, turn your back to the Sun</item>
+    </string-array>
+    <string-array name="eclipse_whys">
+        <item>The Moon blocks the Sun and only the corona glows, because they look about the same size in the sky.</item>
+        <item>The Moon slips into Earth\'s shadow, your head. Earth\'s air bends a little red light into the shadow, so it glows dim copper.</item>
+    </string-array>
+    <string name="solar_bang">Solar eclipse!</string>
+    <string name="lunar_bang">Lunar eclipse!</string>
+    <string name="go_quiz">To the quiz</string>
+
+    <!-- Quiz -->
+    <string name="quiz_n_of">Question %1$d / 5</string>
+    <string name="quiz_n_of_turn">Question %1$d / 5 · turn to answer</string>
+    <string name="quiz_prompt_1">Turn so you see a First Quarter Moon</string>
+    <string name="quiz_prompt_2">What phase comes after Waxing Crescent?</string>
+    <string name="quiz_prompt_3">Turn to a Full Moon</string>
+    <string name="quiz_prompt_4">At Third Quarter, where is the Sun?</string>
+    <string name="quiz_prompt_5">Why isn\'t there a solar eclipse every month?</string>
+    <string name="quiz_prompt_5_alt">Third Quarter or First Quarter: which one is lit on the left?</string>
+    <string-array name="quiz_options_2">
+        <item>First Quarter</item>
+        <item>Waning Crescent</item>
+        <item>Full Moon</item>
+    </string-array>
+    <string-array name="quiz_options_4">
+        <item>On my left</item>
+        <item>On my right</item>
+        <item>Behind me</item>
+    </string-array>
+    <string-array name="quiz_options_5">
+        <item>The Moon\'s path is tilted, so it usually passes above or below the Sun</item>
+        <item>The Moon is too small to block the Sun</item>
+        <item>The Sun is too far away</item>
+    </string-array>
+    <string-array name="quiz_options_5_alt">
+        <item>Third Quarter</item>
+        <item>First Quarter</item>
+        <item>Both</item>
+    </string-array>
+    <string name="quiz_why_1">The Sun on your right, the right half lit: that is First Quarter.</string>
+    <string name="quiz_why_2">The Moon keeps going left, the lit part grows, and a quarter of the way round it is First Quarter.</string>
+    <string name="quiz_why_3">Back to the Sun, the whole lit face towards you: Full Moon.</string>
+    <string name="quiz_why_4">At Third Quarter the left half is lit, so the light comes from the left.</string>
+    <string name="quiz_why_5">You had to flatten the orbit before the Moon could cover the Sun.</string>
+    <string name="quiz_why_5_alt">Third Quarter is lit on the left; First Quarter on the right.</string>
+    <string name="confirm">Confirm</string>
+    <string name="correct">✓ Correct</string>
+    <string name="wrong">✗ The answer: %1$s</string>
+    <string name="next_question">Next question</string>
+    <string name="see_score">See the score</string>
+
+    <!-- S12 -->
+    <string name="s12_title">Class dismissed!</string>
+    <string name="score_fmt">%1$d / 5</string>
+    <string name="best_fmt">Best %1$d / 5</string>
+    <string name="hints_fmt">Hints used: %1$d</string>
+    <string name="relearn">Learn again</string>
+    <string name="finish">Finish</string>
+
+    <!-- S13 -->
+    <string name="illuminated_fmt">%1$d%% lit</string>
+    <string name="day_fmt">Day %1$d</string>
+    <string name="flatten_switch">Flatten the orbit</string>
+    <string name="back_to_course">Back to the lesson</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="close">Close</string>
+    <string name="language">Language</string>
+    <string name="lang_zh">中文</string>
+    <string name="lang_en">English</string>
+    <string name="sound">Sound</string>
+    <string name="restart_course">Restart the lesson</string>
+    <string name="about">About and sources</string>
+    <string name="about_body">Based on the NASA/JPL Education classroom activity "Moon Phases". The lit side is drawn as seen from the northern hemisphere. The Moon\'s surface is drawn by the app, not a photo.</string>
+    <string name="restart_q">Start over? The phases you have learned will be cleared.</string>
+    <string name="restart">Start over</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Modifiers -->
+    <string name="tracking_lost">Can\'t find which way you\'re facing. Look around.</string>
+    <string name="sun_edge_left">← The Sun is this way</string>
+    <string name="sun_edge_right">The Sun is this way →</string>
+</resources>

@@ -1,0 +1,168 @@
+<resources>
+    <string name="app_name">月相课</string>
+    <string name="loading">准备中…</string>
+
+    <!-- S01 -->
+    <string name="s01_title">这堂课，你就是地球</string>
+    <string name="s01_safety">原地转身就行，不用走动。周围 1 米别放东西，或者坐一把能转的椅子。走出安全区时，头显会自动显示房间。</string>
+    <string name="start_lesson">开始上课</string>
+    <string name="free_turn">自由转转</string>
+
+    <!-- S02 -->
+    <string-array name="intro_titles">
+        <item>这是太阳</item>
+        <item>你的头就是地球</item>
+        <item>眼前这颗是月亮，它跟着你转</item>
+    </string-array>
+    <string-array name="intro_bodies">
+        <item>4 米外的一盏灯，和你的眼睛一样高。这个房间里只有它一个光源：你看到的一切都是它照亮的。</item>
+        <item>脚下这一圈有 8 个刻度。每找到一个月相，就亮一个。</item>
+        <item>它在一臂远的地方，比太阳高一点。原地往左转，看看它亮的那半边你能看到多少。</item>
+    </string-array>
+    <string name="next">下一步</string>
+    <string name="begin">开始</string>
+
+    <!-- S03 / S04 -->
+    <string name="lesson_n_of">第 %1$d 课 / 8</string>
+    <string-array name="phase_names">
+        <item>新月</item>
+        <item>蛾眉月</item>
+        <item>上弦月</item>
+        <item>盈凸月</item>
+        <item>满月</item>
+        <item>亏凸月</item>
+        <item>下弦月</item>
+        <item>残月</item>
+    </string-array>
+    <string-array name="phase_dos">
+        <item>面朝太阳</item>
+        <item>向左转一点点</item>
+        <item>继续向左，转到太阳在你右手边</item>
+        <item>再向左一点</item>
+        <item>背对太阳</item>
+        <item>继续向左</item>
+        <item>转到太阳在你左手边</item>
+        <item>快转回太阳了</item>
+    </string-array>
+    <string-array name="phase_whys">
+        <item>背光的一面朝着你，又被太阳晃眼，所以几乎看不见。</item>
+        <item>右边露出一道细细的亮边。傍晚西边天上看到的就是它。</item>
+        <item>右半边亮。看起来是「半个」，但月亮只走了四分之一圈。</item>
+        <item>亮的部分超过一半，而且还在变大。</item>
+        <item>太阳照亮的那一面整个朝着你。月亮从你的头下方一点经过，没进地球的影子。</item>
+        <item>亮面开始变小，这回是右边先暗下去。</item>
+        <item>左半边亮，和上弦月正好相反。</item>
+        <item>只剩左边一道细月牙，天亮前在东边天上。再往左转回太阳，就又是新月。</item>
+    </string-array>
+    <string name="moon_days">月亮走了 %1$d 天</string>
+    <string name="continue_">继续</string>
+    <string name="hint_left">↶ 向左转</string>
+    <string name="hint_more">再转一点</string>
+    <string name="hint_close">快到了</string>
+    <string name="hint_back">↷ 转过了，往回一点</string>
+    <string name="give_hint">给我提示</string>
+    <string name="cant_turn">我转不过去</string>
+    <string name="sun_moved">太阳挪到你右边了，往回转一点</string>
+    <string name="moon_held">月亮定住了</string>
+
+    <!-- S05 -->
+    <string name="s05_title">转完一圈！</string>
+    <string name="lap_summary">你转了一圈 = 月相变了一轮，大约 29.5 天。月亮一直有半边亮，变的只是你看到了多少。</string>
+    <string name="learn_eclipse">接着学日食月食</string>
+    <string name="skip_quiz">直接小测</string>
+
+    <!-- S06 / S07 / S08 -->
+    <string name="eclipse_why_title">为什么不是每个月都有日食？</string>
+    <string name="eclipse_intro">平时月亮的路是斜的（这里放大成 10°，真实约 5°），新月时它从太阳上面经过，所以挡不住。把轨道放平看看。</string>
+    <string name="flatten">放平轨道</string>
+    <string name="eclipse_n_of">食 %1$d / 2</string>
+    <string-array name="eclipse_names">
+        <item>日食</item>
+        <item>月食</item>
+    </string-array>
+    <string-array name="eclipse_dos">
+        <item>放平后面朝太阳</item>
+        <item>放平后背对太阳</item>
+    </string-array>
+    <string-array name="eclipse_whys">
+        <item>月亮把太阳挡住，只剩一圈日冕：因为它们在天上看起来差不多一样大。</item>
+        <item>月亮钻进地球（你的头）的影子，变暗。地球的大气把一点红光折进影子里，所以是暗铜色。</item>
+    </string-array>
+    <string name="solar_bang">日食！</string>
+    <string name="lunar_bang">月食！</string>
+    <string name="go_quiz">去小测</string>
+
+    <!-- Quiz -->
+    <string name="quiz_n_of">第 %1$d 题 / 5</string>
+    <string name="quiz_n_of_turn">第 %1$d 题 / 5 · 转身作答</string>
+    <string name="quiz_prompt_1">转到能看到「上弦月」的位置</string>
+    <string name="quiz_prompt_2">蛾眉月之后，下一个相是？</string>
+    <string name="quiz_prompt_3">转到满月</string>
+    <string name="quiz_prompt_4">下弦月时，太阳在你的哪一边？</string>
+    <string name="quiz_prompt_5">为什么不是每个月都有日食？</string>
+    <string name="quiz_prompt_5_alt">下弦月和上弦月，哪个是左半边亮？</string>
+    <string-array name="quiz_options_2">
+        <item>上弦月</item>
+        <item>残月</item>
+        <item>满月</item>
+    </string-array>
+    <string-array name="quiz_options_4">
+        <item>左手边</item>
+        <item>右手边</item>
+        <item>身后</item>
+    </string-array>
+    <string-array name="quiz_options_5">
+        <item>月亮的路斜了一点，常从太阳上下经过</item>
+        <item>月亮太小，挡不住太阳</item>
+        <item>太阳太远了</item>
+    </string-array>
+    <string-array name="quiz_options_5_alt">
+        <item>下弦月</item>
+        <item>上弦月</item>
+        <item>都是</item>
+    </string-array>
+    <string name="quiz_why_1">太阳在你右手边，右半边亮，这就是上弦月。</string>
+    <string name="quiz_why_2">月亮继续向左走，亮面变大，到四分之一圈就是上弦月。</string>
+    <string name="quiz_why_3">背对太阳，被照亮的那一面整个朝着你，就是满月。</string>
+    <string name="quiz_why_4">下弦月左半边亮，光从左边来。</string>
+    <string name="quiz_why_5">你刚才放平轨道才挡住了太阳。</string>
+    <string name="quiz_why_5_alt">下弦月左半边亮，上弦月右半边亮。</string>
+    <string name="confirm">确定</string>
+    <string name="correct">✓ 答对了</string>
+    <string name="wrong">✗ 正确答案是：%1$s</string>
+    <string name="next_question">下一题</string>
+    <string name="see_score">看成绩</string>
+
+    <!-- S12 -->
+    <string name="s12_title">下课！</string>
+    <string name="score_fmt">%1$d / 5</string>
+    <string name="best_fmt">最好成绩 %1$d / 5</string>
+    <string name="hints_fmt">提示 %1$d 次</string>
+    <string name="relearn">再学一遍</string>
+    <string name="finish">结束</string>
+
+    <!-- S13 -->
+    <string name="illuminated_fmt">照亮 %1$d%%</string>
+    <string name="day_fmt">第 %1$d 天</string>
+    <string name="flatten_switch">放平轨道</string>
+    <string name="back_to_course">回到课程</string>
+
+    <!-- Settings -->
+    <string name="settings_title">设置</string>
+    <string name="close">关闭</string>
+    <string name="language">语言</string>
+    <string name="lang_zh">中文</string>
+    <string name="lang_en">English</string>
+    <string name="sound">提示音</string>
+    <string name="restart_course">重新开始课程</string>
+    <string name="about">关于与数据来源</string>
+    <string name="about_body">课程结构来自 NASA/JPL Education 的课堂活动「Moon Phases」。左右亮面按北半球看。月面是程序画的，不是照片。</string>
+    <string name="restart_q">要重新开始吗？已学会的相会清空。</string>
+    <string name="restart">重新开始</string>
+    <string name="cancel">取消</string>
+
+    <!-- Modifiers -->
+    <string name="tracking_lost">找不到你的朝向，看看四周</string>
+    <string name="sun_edge_left">← 太阳在这边</string>
+    <string name="sun_edge_right">太阳在这边 →</string>
+</resources>
