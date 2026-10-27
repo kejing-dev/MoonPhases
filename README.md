@@ -6,9 +6,9 @@
 
 **You are the Earth: a sun lamp ahead of you and the Moon at arm's length. Turn left on the spot and the eight phases light up one by one; then learn the solar and lunar eclipse, and finish with a five-question quiz.**
 
-PICO OS 6 · PICO Spatial SDK 6.1.9 · Kotlin / SpatialUI · package `io.embodit.moonphases` · v0.1.0 (pre-release / 预发布)
+PICO OS 6 · PICO Spatial SDK 6.1.9 · Kotlin / SpatialUI · package `io.embodit.moonphases` · v0.1.1
 
-> **模拟器 QA 通过，真机未验证（Simulator-QA passed; not yet verified on a real headset）。**
+> **模拟器 QA 通过；v0.1.0 已在 PICO 头显上试用认可（Simulator-QA passed; v0.1.0 was tried and approved on a PICO headset）。**
 
 ![封面：星空里一颗上弦月，相名签「上弦月」，下面是课本卡和俯视小图](docs/cover-S04-first-quarter.jpg)
 
@@ -28,11 +28,19 @@ PICO OS 6 · PICO Spatial SDK 6.1.9 · Kotlin / SpatialUI · package `io.embodit
 ### 安装与启动
 
 ```bash
-adb install -r MoonPhases-v0.1.0.apk
+adb install -r MoonPhases-v0.1.1.apk
 pico-cli app launch io.embodit.moonphases
 ```
 
 APK 在 [Releases](https://github.com/kejing-dev/MoonPhases/releases) 页面下载（仓库不含 APK）。需要 PICO OS 6 头显或 PICO Emulator 6.1。APK 约 45 MB（内含完整中文字体）。原地转身前先看看四周有没有障碍物。
+
+### 0.1.1 新增：上完一次后可跳过课程
+
+第一次打开要完整走一遍课程。上完过一次（到过结课页，本地记住）以后，从开始页到日食月食的每一节，卡片右上角（设置键左边）都有「跳过课程」，点了选「直接小测」或「自由转转」；小测中右上角有「回到课程」，自由转转里也有「回到课程」按钮。另外修了 0.1.0 一个布局问题：上课和小测时 15 个进度点占满整行，把设置键挤没了，现在设置键一直在。
+
+![左：日食这一节右上角的「跳过课程」；右：点开后的选择卡（直接小测 / 自由转转 / 取消）](docs/v011-skip-lesson.jpg)
+
+> 从 v0.1.0 升级：0.1.0 的 APK 是另一台电脑签的名，`adb install -r` 会报签名不一致，要先 `adb uninstall io.embodit.moonphases` 再装（会清掉已学进度和最好成绩）。
 
 ### 容器与骨架
 
@@ -77,11 +85,19 @@ After a full lap, flatten the Moon's orbit to find a solar and a lunar eclipse: 
 ### Install and launch
 
 ```bash
-adb install -r MoonPhases-v0.1.0.apk
+adb install -r MoonPhases-v0.1.1.apk
 pico-cli app launch io.embodit.moonphases
 ```
 
 Download the APK from the [Releases](https://github.com/kejing-dev/MoonPhases/releases) page (the repository itself does not ship an APK). Needs a PICO OS 6 headset or PICO Emulator 6.1. The APK is about 45 MB because it bundles the full Chinese font. Check the space around you before turning on the spot.
+
+### New in 0.1.1: skip the lesson after the first time
+
+The first run walks through the whole lesson. Once you have finished it (reached the score page; remembered on the device), every card from the start page through the eclipses shows "Skip the lesson" at the top right, next to the settings key, offering "Straight to the quiz" or "Free turning"; during the quiz the same corner has "Back to the lesson", and free turning keeps its "Back to the lesson" button. Also fixed from 0.1.0: during the lesson and the quiz the 15 progress dots filled the whole row and pushed the settings key off the card; it is always there now.
+
+![Left: "Skip the lesson" at the top right of the eclipse step; right: the chooser it opens](docs/v011-skip-lesson.jpg)
+
+> Upgrading from v0.1.0: that APK was signed on another machine, so `adb install -r` fails with a signature mismatch. Run `adb uninstall io.embodit.moonphases` first (this clears learned phases and the best score).
 
 ### Container and skeleton
 

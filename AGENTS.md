@@ -4,7 +4,7 @@ A PICO OS 6 Spatial SDK app (Kotlin + ECS, BOM 6.1.9). You are the Earth: a sun 
 Moon at arm's length in front of you. Turn left on the spot and the eight phases appear one by one,
 then two eclipses and a five-question quiz. Fully offline, no permissions.
 
-- Package / applicationId: `io.embodit.moonphases`, version 0.1.0
+- Package / applicationId: `io.embodit.moonphases`, version 0.1.1 (versionCode 2)
 - Container: the default Stage, **Progressive**, immersion 100 / 50 / 100 (`AndroidManifest.xml`); no WindowContainer
 - Design package: `spatial-app-factory/apps/moon-phases/design-package.json` (archetype C, 16 states)
 
@@ -55,6 +55,8 @@ adb -s <serial> shell am broadcast -a io.embodit.moonphases.DEBUG -p io.embodit.
 | `mod M1=1` `mod M2=1` `mod M4=1` `mod M7=1` (`=0` clears) | force the overshoot reading / the hint arrow / lost tracking / the "Sun is this way" sign. M5 (low immersion) is the system crown, M6 is `hold` |
 | `lang zh\|en` | language |
 | `hold 0\|1` | the Moon held (M6): frozen, blue ring, judging paused |
+| `done 0\|1` | pretend the lesson was (not) finished before, in memory only: shows / hides "Skip the lesson" (the real flag is `bestScore >= 0` in prefs, written by "See my score") |
+| `skip 0\|1` | the skip chooser (only drawn on S01–S08 once the lesson is done) |
 
 ### Screenshot list (design package `qaCapture`)
 
@@ -78,6 +80,20 @@ adb -s <serial> shell am broadcast -a io.embodit.moonphases.DEBUG -p io.embodit.
 | S13 Free | `goto S13` then `theta 100` |
 | S14 Settings | `goto S03 step=2` then `settings 1` |
 | S15 Restart confirm | `goto S15` |
+| 0.1.1 skip link | `done 1` then `goto S03 step=3` (link left of the settings key) |
+| 0.1.1 skip chooser | `done 1`, `goto S04 step=3`, `skip 1` |
+| 0.1.1 back link in the quiz | `done 1` then `goto S10 q=5` |
+
+Shell quoting: pass the whole command as one remote string, e.g.
+`adb -s <serial> shell "am broadcast -a io.embodit.moonphases.DEBUG -p io.embodit.moonphases --es cmd 'goto S03 step=3'"`;
+without the inner quotes `adb shell` splits it and only `goto` arrives.
+
+## Skip the lesson (0.1.1)
+
+`UiState.courseDone` = a best score is stored (the lesson reached S12 once). Then `ProgressRow` shows "Skip the lesson"
+on S01–S08 (opens `SkipChooser` in the card: quiz / free turning / cancel) and "Back to the lesson" on S09–S11.
+The chooser counts as an overlay (judging pauses). Progress dots: `maxDisplayCount = 9`, weighted, so the settings
+key and the link always fit.
 | M4 Tracking lost | `mod M4=1` |
 | M6 Moon held | `hold 1` |
 | M7 Sun edge | `mod M7=1` |

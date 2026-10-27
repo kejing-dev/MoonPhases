@@ -160,6 +160,8 @@
     <string name="restart_q">要重新开始吗？已学会的相会清空。</string>
     <string name="restart">重新开始</string>
     <string name="cancel">取消</string>
+    <string name="skip_lesson">跳过课程</string>
+    <string name="skip_body">你已经上完过一次课了，直接去哪？</string>
 
     <!-- Modifiers -->
     <string name="tracking_lost">找不到你的朝向，看看四周</string>

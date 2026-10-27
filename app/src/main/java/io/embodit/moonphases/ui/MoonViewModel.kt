@@ -207,7 +207,25 @@ class MoonViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun backToCourse() {
-        _state.update { it.copy(screen = Screen.S01, flat = false) }
+        _state.update { it.copy(screen = Screen.S01, flat = false, skipChooser = false, sunMovedHint = false, hintAsked = false) }
+    }
+
+    // ------------------------------------------------------------------------------- skip the lesson
+
+    fun setSkipChooser(open: Boolean) {
+        _state.update { it.copy(skipChooser = open, settingsOpen = false) }
+    }
+
+    /** Skip chooser: straight to the quiz. From the start card the Sun's heading is taken first. */
+    fun skipToQuizFrom(headYaw: Float) {
+        if (!yawSet) takeYaw(headYaw)
+        _state.update { it.copy(skipChooser = false) }
+        startQuiz()
+    }
+
+    fun skipToFree(headYaw: Float) {
+        _state.update { it.copy(skipChooser = false) }
+        freeTurn(headYaw)
     }
 
     // -------------------------------------------------------------------------------------- overlays
@@ -231,7 +249,7 @@ class MoonViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun requestRestart() {
-        _state.update { it.copy(settingsOpen = false, restartConfirm = true) }
+        _state.update { it.copy(settingsOpen = false, restartConfirm = true, skipChooser = false) }
     }
 
     fun cancelRestart() {
@@ -263,7 +281,7 @@ class MoonViewModel(application: Application) : AndroidViewModel(application) {
             yaw0Target = yaw0
         }
         _state.update { st ->
-            var next = st.copy(settingsOpen = false, restartConfirm = false, sceneReady = true)
+            var next = st.copy(settingsOpen = false, restartConfirm = false, skipChooser = false, sceneReady = true)
             when (screen.uppercase()) {
                 "S14" -> next = next.copy(settingsOpen = true)
                 "S15" -> next = next.copy(restartConfirm = true)
@@ -296,6 +314,11 @@ class MoonViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun debugSettings(open: Boolean) = setSettingsOpen(open)
+
+    /** `done 0|1`: pretend the lesson was (not) finished before; in memory only, prefs untouched. */
+    fun debugDone(done: Boolean) {
+        _state.update { it.copy(bestScore = if (done) maxOf(it.bestScore, 0) else -1) }
+    }
 
     private fun ding() {
         if (s.sound) chime.ding()

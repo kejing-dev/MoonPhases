@@ -37,6 +37,8 @@ data class UiState(
     val bestScore: Int = -1,
     val settingsOpen: Boolean = false,
     val restartConfirm: Boolean = false,
+    /** "Skip the lesson" chooser (quiz / free turning) replaces the card content. */
+    val skipChooser: Boolean = false,
     val aboutOpen: Boolean = false,
     val language: AppLanguage = AppLanguage.ZH,
     val sound: Boolean = true,
@@ -68,7 +70,19 @@ data class UiState(
         get() = "$screen/$step/$eclipseStep/$flat/$quizIndex"
 
     val overlayOpen: Boolean
-        get() = settingsOpen || restartConfirm
+        get() = settingsOpen || restartConfirm || skipChooser
+
+    /** The lesson has been finished once (a best score is stored): the lesson can be skipped. */
+    val courseDone: Boolean
+        get() = bestScore >= 0
+
+    /** "Skip the lesson" in the progress row: from the start card through the eclipses. */
+    val canSkip: Boolean
+        get() = courseDone && screen.ordinal in Screen.S01.ordinal..Screen.S08.ordinal
+
+    /** "Back to the lesson" in the progress row during the quiz. */
+    val canReturn: Boolean
+        get() = courseDone && screen.ordinal in Screen.S09.ordinal..Screen.S11.ordinal
 
     /** Judging and hint timers run only in these conditions. */
     val judging: Boolean

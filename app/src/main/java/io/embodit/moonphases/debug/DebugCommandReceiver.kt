@@ -23,6 +23,8 @@ import java.util.Locale
  * - `mod M1|M2|M4|M7=0|1`        overshoot reading / hint arrow / tracking lost / sun-edge sign forced on or off (M5 is the system's immersion)
  * - `lang zh|en`
  * - `hold 0|1`                   the Moon held (M6)
+ * - `done 0|1`                   lesson finished before (in memory): shows "Skip the lesson"
+ * - `skip 0|1`                   the skip chooser
  *
  * Extras may also be given separately (`--es step 3`); the token form inside `cmd` is enough.
  */
@@ -71,6 +73,8 @@ object DebugHost {
                 "settings" -> vm.debugSettings(on(rest.firstOrNull()))
                 "lang" -> AppLanguage.fromTag(rest.firstOrNull())?.let { vm.setLanguage(it) } ?: MoonLog.i("CMD lang zh|en")
                 "hold" -> scene.setHeld(on(rest.firstOrNull()))
+                "done" -> vm.debugDone(on(rest.firstOrNull()))
+                "skip" -> vm.setSkipChooser(on(rest.firstOrNull()))
                 "dump" -> MoonLog.i(scene.dumpLine())
                 "mod" -> {
                     for ((k, v) in args) {

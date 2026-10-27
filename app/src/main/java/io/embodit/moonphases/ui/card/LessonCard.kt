@@ -92,6 +92,7 @@ fun LessonCard(state: UiState, vm: MoonViewModel, headYaw: () -> Float) {
             }
             Box(modifier = Modifier.weight(1f).fillMaxWidth()) {
                 if (state.restartConfirm) RestartConfirm(vm)
+                else if (state.skipChooser && state.canSkip) SkipChooser(vm, headYaw)
                 else when (state.screen) {
                     Screen.S00 -> Text(str(R.string.loading), style = PicoTheme.typography.bodyMedium)
                     Screen.S01 -> ReadyCard(vm, headYaw)
@@ -129,10 +130,16 @@ private fun ProgressRow(state: UiState, vm: MoonViewModel) {
                 Screen.S04, Screen.S07, Screen.S08, Screen.S11, Screen.S12 -> 1f
                 else -> 0f
             }
-        if (index != null) {
-            ProgressPageControl(currentIndex = index, onClickAction = {}, totalDots = 15, currentProgress = { progress }, enabled = false)
+        // the dots get what the link and the settings key leave (unweighted, they took the whole row)
+        Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.CenterStart) {
+            if (index != null) {
+                // 15 dots at the fixed pitch no longer fit beside the settings key (and the skip link): a sliding
+                // window of 9 keeps the current dot in view
+                ProgressPageControl(currentIndex = index, onClickAction = {}, totalDots = 15, currentProgress = { progress }, enabled = false, maxDisplayCount = 9)
+            }
         }
-        Spacer(modifier = Modifier.weight(1f))
+        if (state.canSkip && !state.skipChooser && !state.restartConfirm) LinkText(str(R.string.skip_lesson), onClick = { vm.setSkipChooser(true) })
+        if (state.canReturn && !state.restartConfirm) LinkText(str(R.string.back_to_course), onClick = { vm.backToCourse() })
         IconButton(onClick = { vm.setSettingsOpen(!state.settingsOpen) }) {
             Icon(painter = painterResource(R.drawable.ic_settings), contentDescription = str(R.string.settings_title), modifier = Modifier.size(22.dp))
         }
@@ -429,6 +436,23 @@ private fun RestartConfirm(vm: MoonViewModel) {
                 Text(str(R.string.restart), maxLines = 1)
             }
             SecondaryButton(str(R.string.cancel), onClick = { vm.cancelRestart() })
+        }
+    }
+}
+
+// ------------------------------------------------------------------------------------- skip chooser
+
+/** After the lesson was finished once: quiz or free turning instead of the rest of the lesson. */
+@Composable
+private fun SkipChooser(vm: MoonViewModel, headYaw: () -> Float) {
+    Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        Text(str(R.string.skip_lesson), style = PicoTheme.typography.titleLarge)
+        Text(str(R.string.skip_body), style = PicoTheme.typography.bodyMediumMultiline, color = PicoTheme.colorScheme.labelSecondary)
+        Spacer(modifier = Modifier.weight(1f))
+        Row(horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
+            PrimaryButton(str(R.string.skip_quiz), onClick = { vm.skipToQuizFrom(headYaw()) })
+            SecondaryButton(str(R.string.free_turn), onClick = { vm.skipToFree(headYaw()) })
+            LinkText(str(R.string.cancel), onClick = { vm.setSkipChooser(false) })
         }
     }
 }

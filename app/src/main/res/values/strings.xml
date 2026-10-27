@@ -160,6 +160,8 @@
     <string name="restart_q">Start over? The phases you have learned will be cleared.</string>
     <string name="restart">Start over</string>
     <string name="cancel">Cancel</string>
+    <string name="skip_lesson">Skip the lesson</string>
+    <string name="skip_body">You have finished the lesson before. Where to?</string>
 
     <!-- Modifiers -->
     <string name="tracking_lost">Can\'t find which way you\'re facing. Look around.</string>
