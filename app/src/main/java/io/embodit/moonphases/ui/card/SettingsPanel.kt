@@ -36,7 +36,7 @@ fun SettingsPanel(state: UiState, vm: MoonViewModel) {
             Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                 Text(str(R.string.settings_title), style = PicoTheme.typography.titleLarge)
                 Spacer(modifier = Modifier.weight(1f))
-                IconButton(onClick = { vm.setSettingsOpen(false) }) {
+                IconButton(onClick = { vm.setSettingsOpen(false) }, colors = moonIconButtonColors()) {
                     Icon(painter = painterResource(R.drawable.ic_close), contentDescription = str(R.string.close), modifier = Modifier.size(20.dp))
                 }
             }
@@ -57,8 +57,8 @@ fun SettingsPanel(state: UiState, vm: MoonViewModel) {
                 Text(str(R.string.sound), style = PicoTheme.typography.bodyMedium, modifier = Modifier.width(120.dp))
                 Switch(checked = state.sound, onCheckedChange = { vm.setSound(it) })
             }
-            Link(onClick = { vm.requestRestart() }) { Text(str(R.string.restart_course), maxLines = 1) }
-            Link(onClick = { vm.toggleAbout() }) { Text(str(R.string.about), maxLines = 1) }
+            Link(onClick = { vm.requestRestart() }, colors = moonLinkColors()) { Text(str(R.string.restart_course), maxLines = 1) }
+            Link(onClick = { vm.toggleAbout() }, colors = moonLinkColors()) { Text(str(R.string.about), maxLines = 1) }
             if (state.aboutOpen) {
                 Text(str(R.string.about_body), style = PicoTheme.typography.labelMedium, color = PicoTheme.colorScheme.labelSecondary, maxLines = 3)
             }

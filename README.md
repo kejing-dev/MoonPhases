@@ -38,7 +38,9 @@ APK 在 [Releases](https://github.com/kejing-dev/MoonPhases/releases) 页面下�
 
 第一次打开要完整走一遍课程。上完过一次（到过结课页，本地记住）以后，从开始页到日食月食的每一节，卡片右上角（设置键左边）都有「跳过课程」，点了选「直接小测」或「自由转转」；小测中右上角有「回到课程」，自由转转里也有「回到课程」按钮。另外修了 0.1.0 一个布局问题：上课和小测时 15 个进度点占满整行，把设置键挤没了，现在设置键一直在。
 
-![左：日食这一节右上角的「跳过课程」；右：点开后的选择卡（直接小测 / 自由转转 / 取消）](docs/v011-skip-lesson.jpg)
+按钮也换成了月夜配色：主按钮月光暖白、次按钮夜蓝，只有「重新开始」用砖红，链接改成深夜蓝，在玻璃卡片上看得清。
+
+![左：开始页右上角的「跳过课程」；右：点开后的选择卡（直接小测 / 自由转转 / 取消）](docs/v011-skip-lesson.jpg)
 
 > 从 v0.1.0 升级：0.1.0 的 APK 是另一台电脑签的名，`adb install -r` 会报签名不一致，要先 `adb uninstall io.embodit.moonphases` 再装（会清掉已学进度和最好成绩）。
 
@@ -95,7 +97,9 @@ Download the APK from the [Releases](https://github.com/kejing-dev/MoonPhases/re
 
 The first run walks through the whole lesson. Once you have finished it (reached the score page; remembered on the device), every card from the start page through the eclipses shows "Skip the lesson" at the top right, next to the settings key, offering "Straight to the quiz" or "Free turning"; during the quiz the same corner has "Back to the lesson", and free turning keeps its "Back to the lesson" button. Also fixed from 0.1.0: during the lesson and the quiz the 15 progress dots filled the whole row and pushed the settings key off the card; it is always there now.
 
-![Left: "Skip the lesson" at the top right of the eclipse step; right: the chooser it opens](docs/v011-skip-lesson.jpg)
+Buttons now use a moon-night palette: moonlight-white primary, night-blue secondary, muted brick only for "Start over", and deep-blue links that read on the glass card.
+
+![Left: "Skip the lesson" at the top right of the start page; right: the chooser it opens](docs/v011-skip-lesson.jpg)
 
 > Upgrading from v0.1.0: that APK was signed on another machine, so `adb install -r` fails with a signature mismatch. Run `adb uninstall io.embodit.moonphases` first (this clears learned phases and the best score).
 

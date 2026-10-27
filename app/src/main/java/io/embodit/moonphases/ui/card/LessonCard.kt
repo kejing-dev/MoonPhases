@@ -18,7 +18,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -26,8 +25,11 @@ import com.pico.spatial.ui.design.Button
 import com.pico.spatial.ui.design.ButtonDefaults
 import com.pico.spatial.ui.design.Icon
 import com.pico.spatial.ui.design.IconButton
+import com.pico.spatial.ui.design.IconButtonDefaults
 import com.pico.spatial.ui.design.Link
+import com.pico.spatial.ui.design.LinkDefaults
 import com.pico.spatial.ui.design.Option
+import com.pico.spatial.ui.design.OptionDefaults
 import com.pico.spatial.ui.design.PageControl
 import com.pico.spatial.ui.design.PicoTheme
 import com.pico.spatial.ui.design.ProgressPageControl
@@ -41,6 +43,7 @@ import io.embodit.moonphases.domain.Lesson
 import io.embodit.moonphases.domain.Screen
 import io.embodit.moonphases.domain.UiState
 import io.embodit.moonphases.ui.MoonViewModel
+import io.embodit.moonphases.ui.theme.MoonColors
 import io.embodit.moonphases.ui.theme.str
 import io.embodit.moonphases.ui.theme.strArray
 import kotlin.math.roundToInt
@@ -62,7 +65,7 @@ fun PrimaryButton(label: String, onClick: () -> Unit, enabled: Boolean = true, m
         onClick = onClick,
         enabled = enabled,
         modifier = modifier,
-        colors = ButtonDefaults.buttonColors(containerColor = PicoTheme.colorScheme.interaction, contentColor = Color.White),
+        colors = ButtonDefaults.buttonColors(containerColor = MoonColors.ButtonPrimary, contentColor = MoonColors.OnButtonPrimary),
     ) {
         Text(label, maxLines = 1)
     }
@@ -70,12 +73,33 @@ fun PrimaryButton(label: String, onClick: () -> Unit, enabled: Boolean = true, m
 
 @Composable
 fun SecondaryButton(label: String, onClick: () -> Unit, enabled: Boolean = true, modifier: Modifier = Modifier) {
-    Button(onClick = onClick, enabled = enabled, modifier = modifier) { Text(label, maxLines = 1) }
+    Button(
+        onClick = onClick,
+        enabled = enabled,
+        modifier = modifier,
+        colors = ButtonDefaults.buttonColors(containerColor = MoonColors.ButtonSecondary, contentColor = MoonColors.OnButtonSecondary),
+    ) {
+        Text(label, maxLines = 1)
+    }
+}
+
+/** The only destructive action: "Start over" in the restart confirmation. */
+@Composable
+private fun DangerButton(label: String, onClick: () -> Unit) {
+    Button(onClick = onClick, colors = ButtonDefaults.buttonColors(containerColor = MoonColors.ButtonDanger, contentColor = MoonColors.OnButtonDanger)) {
+        Text(label, maxLines = 1)
+    }
 }
 
 @Composable
+fun moonLinkColors() = LinkDefaults.linkColors(contentColor = MoonColors.LinkInk)
+
+@Composable
+fun moonIconButtonColors() = IconButtonDefaults.iconButtonColors(containerColor = MoonColors.ButtonSecondary, contentColor = MoonColors.OnButtonSecondary)
+
+@Composable
 private fun LinkText(label: String, onClick: () -> Unit) {
-    Link(onClick = onClick) { Text(label, maxLines = 1) }
+    Link(onClick = onClick, colors = moonLinkColors()) { Text(label, maxLines = 1) }
 }
 
 /**
@@ -140,7 +164,7 @@ private fun ProgressRow(state: UiState, vm: MoonViewModel) {
         }
         if (state.canSkip && !state.skipChooser && !state.restartConfirm) LinkText(str(R.string.skip_lesson), onClick = { vm.setSkipChooser(true) })
         if (state.canReturn && !state.restartConfirm) LinkText(str(R.string.back_to_course), onClick = { vm.backToCourse() })
-        IconButton(onClick = { vm.setSettingsOpen(!state.settingsOpen) }) {
+        IconButton(onClick = { vm.setSettingsOpen(!state.settingsOpen) }, colors = moonIconButtonColors()) {
             Icon(painter = painterResource(R.drawable.ic_settings), contentDescription = str(R.string.settings_title), modifier = Modifier.size(22.dp))
         }
     }
@@ -352,7 +376,12 @@ private fun QuizPickCard(state: UiState, vm: MoonViewModel) {
             Text(quizPrompt(state), style = PicoTheme.typography.titleLarge, maxLines = 2, overflow = TextOverflow.Ellipsis)
         }
         for (i in options.indices) {
-            Option(selected = state.selectedOption == i, onSelectChange = { vm.selectOption(i) }, modifier = Modifier.fillMaxWidth()) {
+            Option(
+                selected = state.selectedOption == i,
+                onSelectChange = { vm.selectOption(i) },
+                modifier = Modifier.fillMaxWidth(),
+                colors = OptionDefaults.optionColors(checkedContainerColor = MoonColors.ButtonSecondary, checkedContentColor = MoonColors.OnButtonSecondary),
+            ) {
                 Text(options[i], maxLines = 1, overflow = TextOverflow.Ellipsis)
             }
         }
@@ -432,9 +461,7 @@ private fun RestartConfirm(vm: MoonViewModel) {
         Text(str(R.string.restart_q), style = PicoTheme.typography.titleLarge)
         Spacer(modifier = Modifier.weight(1f))
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            Button(onClick = { vm.confirmRestart() }, colors = ButtonDefaults.buttonColors(containerColor = PicoTheme.colorScheme.error, contentColor = Color.White)) {
-                Text(str(R.string.restart), maxLines = 1)
-            }
+            DangerButton(str(R.string.restart), onClick = { vm.confirmRestart() })
             SecondaryButton(str(R.string.cancel), onClick = { vm.cancelRestart() })
         }
     }

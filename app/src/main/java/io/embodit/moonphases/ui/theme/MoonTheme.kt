@@ -39,6 +39,17 @@ object MoonColors {
     val NotchLearned = Color(0xFFF3E9C6)
     val NotchTarget = Color(0xFF9CC8FF)
     val Space = Color(0xFF05060B)
+
+    // Buttons on the glass card (0.1.1): one tone per level, moon-night palette, text contrast >= 12:1
+    // (danger 5.8:1). Primary = moonlight, secondary / icon keys / selected option = night blue,
+    // danger (only "Start over") = muted brick, links = deep night ink (~3.6:1 on the grey glass).
+    val ButtonPrimary = Color(0xFFEDE8DC)
+    val OnButtonPrimary = Color(0xFF141B33)
+    val ButtonSecondary = Color(0xFF1B2440)
+    val OnButtonSecondary = Color(0xFFE4E7F0)
+    val ButtonDanger = Color(0xFFA9463C)
+    val OnButtonDanger = Color(0xFFFFF6F2)
+    val LinkInk = Color(0xFF16224F)
 }
 
 /**
