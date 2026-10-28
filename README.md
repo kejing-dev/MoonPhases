@@ -10,7 +10,7 @@ PICO OS 6 · PICO Spatial SDK 6.1.9 · Kotlin / SpatialUI · package `io.embodit
 
 > **模拟器 QA 通过；v0.1.0 已在 PICO 头显上试用认可（Simulator-QA passed; v0.1.0 was tried and approved on a PICO headset）。**
 
-![月相课海报：星空里的日食，左侧标题「月相课 Moon Phases」](docs/vibelab/poster-2560x1440.jpg)
+![月相课海报：星空里的日食，左侧标题「月相课」](docs/vibelab/poster-2560x1440.jpg)
 
 > 截图和演示视频来自原生模拟器（PICO Emulator 6.1），由调试广播和模拟器相机转动代替真人转身；**非真实手势录像**。
 > Screenshots and the demo video were taken on the native PICO emulator, driven by debug broadcasts and by turning the emulator camera instead of a real person turning; **not a recording of real hand gestures.**
